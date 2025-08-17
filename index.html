@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tienda con Supabase</title>
+  <link rel="stylesheet" href="estilos.css">
+  <script src="https://unpkg.com/@supabase/supabase-js"></script>
+</head>
+<body>
+  <h1>Gestión de Productos</h1>
+
+  <!-- Formulario para agregar productos -->
+  <form id="form-agregar">
+    <input type="text" id="nombre" placeholder="Nombre" required>
+    <input type="number" id="precioUnidad" placeholder="Precio Unidad" required>
+    <input type="number" id="precio5" placeholder="Precio x5">
+    <input type="number" id="precio10" placeholder="Precio x10">
+    <input type="number" id="precio20" placeholder="Precio x20">
+    <input type="number" id="cantidadCaja" placeholder="Cantidad x Caja">
+    <input type="number" id="stock" placeholder="Stock" required>
+    <input type="text" id="imagen" placeholder="URL Imagen">
+    <button type="submit">Agregar Producto</button>
+  </form>
+
+  <hr>
+
+  <!-- Contenedor de productos -->
+  <section id="productos"></section>
+
+  <script src="https://unpkg.com/@supabase/supabase-js"></script>
+
+  <script src="apisupa.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
