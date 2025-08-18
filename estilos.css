@@ -6,21 +6,29 @@ body {
 }
 
 .card {
-  background: white;
+  background-color: rgba(0, 0, 0, 0.082);
   border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
   padding: 15px;
   margin: 15px;
-  width: 200px;
+  width: 200px;          /* ancho fijo */
+  height: 250px;         /* alto fijo */
   display: inline-block;
   vertical-align: top;
   text-align: center;
+  overflow: hidden;      /* evita que el contenido salga de la card */
+  box-sizing: border-box; /* incluye padding en el tamaño */
 }
+
 
 .card img {
   border-radius: 8px;
+  width: 100%;      /* ancho fijo */
+  height: 150px;     /* alto fijo */
+  object-fit: cover; /* mantiene proporción y recorta si es necesario */
   margin-bottom: 10px;
 }
+
 
 .card button {
   margin-left: 5px;
@@ -56,17 +64,6 @@ body {
 
 
 /* Estilo general de las cards */
-.card {
-  background-color: #fff;
-  border-radius: 10px;
-  padding: 10px;
-  margin: 10px;
-  text-align: center;
-  cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
 .card:hover {
   transform: translateY(-5px); 
   box-shadow: 0 8px 15px rgba(0,0,0,0.2);

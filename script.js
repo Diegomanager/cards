@@ -15,7 +15,7 @@ async function cargarProductos() {
   });
 }
 
-// Crear card (sin botón eliminar en la card)
+// Crear card 
 function crearCard(producto) {
   const div = document.createElement('div');
   div.classList.add('card');
@@ -39,11 +39,11 @@ function abrirModal(producto) {
   modalContenido.innerHTML = `
     <span class="cerrar">&times;</span>
 
-    <p>Preciox1: <span class="precio">${producto.precio_unid}</span> <button class="editar-precio-unid">✏️</button></p>
-    <p>Preciox5: <span class="precio">${producto.preciox5 || "-"}</span> <button class="editar-preciox5">✏️</button></p>
-    <p>Preciox10: <span class="precio">${producto.preciox10 || "-"}</span> <button class="editar-preciox10">✏️</button></p>
-    <p>Preciox20: <span class="precio">${producto.preciox20 || "-"}</span> <button class="editar-preciox20">✏️</button></p>
-    <p>Paquetes: <span class="precio">${producto.cantidadxcaja || "-"}</span> <button class="editar-cantidadxcaja">✏️</button></p>
+    <p>Preciox1: <span class="precio">Bs.${producto.precio_unid}</span> <button class="editar-precio-unid">✏️</button></p>
+    <p>Preciox5: <span class="precio">Bs.${producto.preciox5 || "-"}</span> <button class="editar-preciox5">✏️</button></p>
+    <p>Preciox10: <span class="precio">Bs.${producto.preciox10 || "-"}</span> <button class="editar-preciox10">✏️</button></p>
+    <p>Preciox20: <span class="precio">Bs.${producto.preciox20 || "-"}</span> <button class="editar-preciox20">✏️</button></p>
+    <p>Contiene: <span class="precio">${producto.cantidadxcaja || "-"}</span> <button class="editar-cantidadxcaja">✏️</button></p>
     <p>Stock: <span class="stock">${producto.stock}</span> <button class="btn-aumentar-stock">+</button></p>
 
     <div class="cantidad-control">
@@ -61,7 +61,13 @@ function abrirModal(producto) {
 
   // Cerrar modal
   modalContenido.querySelector('.cerrar').addEventListener('click', () => modalFondo.remove());
-
+    
+// Cerrar modal al hacer click fuera del contenido
+modalFondo.addEventListener('click', (e) => {
+  if (e.target === modalFondo) { // solo si se hace click en el fondo
+    modalFondo.remove();
+  }
+});
   // --- Cantidad de compra ---
   const cantidadInput = modalContenido.querySelector('.cantidad');
   let cantidad = 0;
